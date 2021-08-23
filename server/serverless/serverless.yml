@@ -1,0 +1,28 @@
+service: serverless
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  environment:
+      DBURI: ${env:DBURI}
+functions:
+  remove:
+    handler: handler.remove
+    events:
+      - httpApi:
+          path: /search/{word}
+          method: delete
+  search:
+    handler: handler.search
+    events:
+      - httpApi:
+          path: /search/{query}
+          method: get
+  update:
+    handler: handler.update
+    events:
+      - httpApi:
+          path: /search/{word}
+          method: put

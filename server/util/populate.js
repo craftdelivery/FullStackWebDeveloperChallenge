@@ -9,6 +9,7 @@ const word_list = fs.readFileSync('./corpus/sorted_word_list.txt').toString('utf
 HEMINGWAY_CORPUS_ID = 1 
 
 // usage from server folder: ./util/gen_list.sh && node util/populate.js
+
 const populate = async () => {
   // create 2 arrays for unnest insert
   const words = word_list.split('\n')
@@ -20,7 +21,7 @@ const populate = async () => {
     ssl: off,
   })
 
-  const pgc = await client.connect()
+  await client.connect()
   try {
     const result = await client.query({
       text: `
@@ -34,7 +35,7 @@ const populate = async () => {
         corpus_ids
       ],
     })
-    console.log('done')
+    console.log('populate done')
     process.exit(0)
   } catch (pg_err) {
     console.log(pg_err)

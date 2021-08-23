@@ -10,7 +10,6 @@ insert into corpus(author, title) values ('Ernest Hemingway', 'The Old Man and T
 -- HEMINGWAY_CORPUS_ID = 1 
 
 create table search (
-  id serial primary key,
   word text unique,
   corpus_id int references corpus(id)
 );

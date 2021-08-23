@@ -12,6 +12,7 @@ last_line=2911
 # - convert to lowercase
 # - remove whitespaces
 # - remove punctuation, quotes and emphasis characters (_)
+# - separates hypenated words into individual words
 # - puts each word on a new line
 # - sorts
 # - removes duplicates and blank lines

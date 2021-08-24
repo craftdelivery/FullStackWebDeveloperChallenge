@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import search from '../../rest/search'
+import searchRequest from './searchRequest'
 import { clearSearch, setTerm } from './searchSlice'
 import Reslts from './results'
-
-const styles = {
-  active: "mt-3 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
-  inactive: "mt-3 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
-  reset: "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded",
-}
+import styles from '../styles'
+import {
+  TrashIcon,
+  XIcon,
+} from '@heroicons/react/solid'
 
 export default function Search() {
   const dispatch = useDispatch()
@@ -25,7 +24,7 @@ export default function Search() {
   const btn_class = val.length ? styles.active : styles.inactive
 
   const submit = () => {
-    search(dispatch, val)
+    searchRequest(dispatch, val)
   }
 
   const clear = () => {
@@ -39,16 +38,13 @@ export default function Search() {
       <div className="px-4 py-5 sm:p-6">
         <h3 className="m-7 text-lg leading-6 font-medium text-gray-900">
           Search
-          {
-            val.length ? (
-              <button
-                className={styles.reset}
-                onClick={clear}
-              >
-                Clear
-              </button>
-            ) : null
-          }
+          <button
+            className={styles.reset}
+            onClick={clear}
+            disabled={inProgress || !val.length}
+          >
+            <XIcon className="h-6" />
+          </button>
         </h3>
         <div className="mt-2 max-w-xl text-sm text-gray-500">
           <p>
@@ -63,7 +59,7 @@ export default function Search() {
             <input
               type="text"
               name="search"
-              className="p-2 h-7 shadow-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              className={styles.input}
               placeholder=""
               onChange={(e) => setVal(e.target.value)}
               value={val}
@@ -85,14 +81,7 @@ export default function Search() {
           <div>
             <Reslts results={results} />
           </div>
-        ) : null
-      }
-      {
-        searchTerm.length && !results.length ? (
-          <b>
-            No Similar matches for {val}
-          </b>
-        ) : null
+        ) : 'No Results'
       }
     </div>
   )

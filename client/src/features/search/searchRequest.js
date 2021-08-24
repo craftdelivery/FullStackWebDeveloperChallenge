@@ -1,6 +1,6 @@
 import axios from 'axios'
-import config from './config'
-import { setProgress, setSearch, setTerm } from '../features/search/searchSlice'
+import config from '../../config'
+import { setProgress, setSearch, setTerm } from './searchSlice'
 
 export default async function search(dispatch, query) {
   dispatch(setProgress(true))

@@ -6,7 +6,7 @@ const word_list = fs.readFileSync('./corpus/sorted_word_list.txt').toString('utf
 
 // hard coded for this example
 // we probably didn't need to do this but it felt more correct
-HEMINGWAY_CORPUS_ID = 1 
+const HEMINGWAY_CORPUS_ID = 1 
 
 // usage from server folder: ./util/gen_list.sh && node util/populate.js
 

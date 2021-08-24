@@ -19,7 +19,7 @@ Hosted on AWS Lambda using the serverless framework
 The base url is the same for all endpoints with the last segment being a query param
 
 | Action   |     Method  | Route           |
-|----------|:------------|----------------:|
+|----------|:------------|:----------------|
 | Remove   |  /DELETE    | /search/:word   |
 | Search   |  /GET       | /search/:query  |
 | Update   |  /PUT       | /search/:word   |

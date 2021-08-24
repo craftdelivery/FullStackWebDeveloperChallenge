@@ -11,7 +11,7 @@ export default function Remove() {
   const dispatch = useDispatch()
   const [val, setVal] = useState('')
 
-  const { result, inProgress, searchTerm } = useSelector(s => s.search)
+  const { result, inProgress, searchTerm } = useSelector(s => s.remove)
   
   useEffect(() => {
     if(searchTerm && searchTerm.length) {
@@ -62,7 +62,7 @@ export default function Remove() {
             className={btn_class}
           >
             {
-              inProgress ? 'Searching...' : 'Go'
+              inProgress ? 'Removing...' : 'Go'
             }
           </button>
           <button

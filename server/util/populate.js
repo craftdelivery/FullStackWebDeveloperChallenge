@@ -4,7 +4,7 @@ const { Client } = require('pg')
 const word_list = fs.readFileSync('./corpus/sorted_word_list.txt').toString('utf-8')
 
 // hard coded for this example
-// we probably didn't need a corput table but it felt more correct
+// we probably didn't need a corpus table but it felt more correct
 const HEMINGWAY_CORPUS_ID = 1 
 
 // usage from server folder:

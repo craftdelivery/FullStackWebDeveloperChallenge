@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import removeRequest from './removeRequest'
-import { clearSearch, setTerm } from './removeSlice'
+import { setTerm } from './removeSlice'
 import styles from '../styles'
 import {
   XIcon,
@@ -11,7 +11,7 @@ export default function Remove() {
   const dispatch = useDispatch()
   const [val, setVal] = useState('')
 
-  const { result, inProgress, searchTerm } = useSelector(s => s.remove)
+  const { results, inProgress, searchTerm } = useSelector(s => s.remove)
   
   useEffect(() => {
     if(searchTerm && searchTerm.length) {
@@ -28,7 +28,7 @@ export default function Remove() {
   const clear = () => {
     setVal('')
     dispatch(setTerm(''))
-    dispatch(clearSearch())
+    // dispatch(clearSearch())
   }
 
   return (
@@ -73,6 +73,18 @@ export default function Remove() {
             <XIcon className="h-6" />
           </button>
         </div>
+        {
+          results.map(result => {
+            return (
+              <div className="ml-6">
+                {result.word} was {result.removed ? '' : 'Not '} Removed {result.term ? ` For Query ${result.term}`: null}
+                {
+                  result.error ? ' - Error' : null
+                }
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   )

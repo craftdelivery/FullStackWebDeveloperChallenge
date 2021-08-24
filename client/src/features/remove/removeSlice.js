@@ -3,18 +3,17 @@ import { createSlice } from '@reduxjs/toolkit'
 export const removeSlice = createSlice({
   name: 'remove',
   initialState: {
-    result: null,
+    results: [],
     inProgress: false,
     searchTerm: '',
   },
   reducers: {
-    clearSearch: (state) => { state.results = null },
+    addResult: (state, action) => { state.results = [...state.results, action.payload] },
     setProgress: (state, action) => { state.inProgress = action.payload },
-    setSearch: (state, action) => { state.result = action.payload },
     setTerm: (state, action) => { state.searchTerm = action.payload },
   }
 })
 
-export const { clearSearch, setProgress, setSearch, setTerm } = removeSlice.actions
+export const { addResult, clearSearch, setProgress, setTerm } = removeSlice.actions
 
 export default removeSlice.reducer

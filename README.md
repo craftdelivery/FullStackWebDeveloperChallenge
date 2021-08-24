@@ -22,6 +22,9 @@ Hosted on Netlify: [site](https://eloquent-fermat-678284.netlify.app/)
 
 A react app using @redux-tools, created with create-react-app using the redux template
 
+### Screenshots
+![image](https://user-images.githubusercontent.com/40546869/130661280-6462055d-539f-49f2-8748-acedb818bee3.png)
+
 ### REST
 
 Use axios to call the server

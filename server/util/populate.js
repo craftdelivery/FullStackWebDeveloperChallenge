@@ -1,15 +1,14 @@
 const fs = require('fs')
 const { Client } = require('pg')
-const { off } = require('process')
 
 const word_list = fs.readFileSync('./corpus/sorted_word_list.txt').toString('utf-8')
 
 // hard coded for this example
-// we probably didn't need to do this but it felt more correct
+// we probably didn't need a corput table but it felt more correct
 const HEMINGWAY_CORPUS_ID = 1 
 
-// usage from server folder: ./util/gen_list.sh && node util/populate.js
-
+// usage from server folder:
+//    ./util/gen_list.sh && node util/populate.js
 const populate = async () => {
   // create 2 arrays for unnest insert
   const words = word_list.split('\n')
@@ -18,7 +17,7 @@ const populate = async () => {
   const client = new Client({
     connectionString: process.env.DBURI,
     rejectUnauthorized: false,
-    ssl: off,
+    ssl: 'off',
   })
 
   await client.connect()

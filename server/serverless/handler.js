@@ -43,7 +43,7 @@ module.exports.remove = async (event, context) => {
     const resp = await db.query({
       name: 'search-remove',
       text: `
-          delete from search
+           delete from search
             where word=(
               select word from (
                 select word, 
@@ -54,7 +54,7 @@ module.exports.remove = async (event, context) => {
               order by sml DESC, word
                  limit 1) sq
             )
-          returning *`,
+             returning *`,
       values: [ word_trimmed ]
     })
     return response({result: resp.rows})

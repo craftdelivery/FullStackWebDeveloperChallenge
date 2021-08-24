@@ -11,7 +11,7 @@ export default function Remove() {
   const dispatch = useDispatch()
   const [val, setVal] = useState('')
 
-  const { results, inProgress, searchTerm } = useSelector(s => s.remove)
+  const { results, inProgress, searchTerm } = useSelector(s => s.update)
   
   useEffect(() => {
     if(searchTerm && searchTerm.length) {
@@ -76,9 +76,12 @@ export default function Remove() {
           results.map(result => {
             return (
               <div className="ml-6">
-                {result.word} was {result.added ? '' : 'Not '} Removed {result.term ? ` For Query ${result.term}`: null}
+                {result.word} was {result.added ? '' : 'Not '} Added {result.term ? ` For Query ${result.term}`: null}
                 {
                   result.error ? ' - Error' : null
+                }
+                {
+                  result.conflict ? ': Word already in database' : null
                 }
               </div>
             )

@@ -33,8 +33,8 @@ From server folder: `./util/gen_list.sh && node util/populate.js`
     limit 3;
 ```
 
---    word   |    sml     
--- ----------+------------
---  you      |          1
---  your     |        0.5
---  youll    | 0.42857143
+|   word   |    sml     |
+|----------+------------|
+| you      |          1 |
+|  your     |        0.5 |
+|  youll    | 0.42857143 |

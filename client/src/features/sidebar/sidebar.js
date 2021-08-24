@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { open } from './sidebarSlice'
 import {
   HomeIcon,
@@ -76,16 +77,17 @@ export default function Sidebar() {
                 <div className="flex-shrink-0 flex items-center px-4">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-900-text.svg"
+                    src="https://wellkeptwallet.com/wp-content/uploads/mistplay-logo-525x112.png"
                     alt="Workflow"
                   />
                 </div>
                 <nav aria-label="Sidebar" className="mt-5">
                   <div className="px-2 space-y-1">
                     {navigation.map((item) => (
-                      <a
+                      <Link
+                        onClick={() => setSidebarOpen(false)}
                         key={item.name}
-                        href={item.link}
+                        to={item.link}
                         className={classNames(
                           item.current
                             ? 'bg-gray-100 text-gray-900'
@@ -101,7 +103,7 @@ export default function Sidebar() {
                           aria-hidden="true"
                         />
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </nav>
@@ -119,16 +121,16 @@ export default function Sidebar() {
               <div className="flex items-center flex-shrink-0 px-4">
                 <img
                   className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-900-text.svg"
-                  alt="Workflow"
+                  src="https://wellkeptwallet.com/wp-content/uploads/mistplay-logo-525x112.png"
+                  alt="Icon"
                 />
               </div>
               <nav className="mt-5 flex-1" aria-label="Sidebar">
                 <div className="px-2 space-y-1">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.link}
+                      to={item.link}
                       className={classNames(
                         item.current
                           ? 'bg-gray-200 text-gray-900'
@@ -144,7 +146,7 @@ export default function Sidebar() {
                         aria-hidden="true"
                       />
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </nav>

@@ -13,7 +13,7 @@ export default function Mobile() {
         <div>
           <img
             className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+            src="https://wellkeptwallet.com/wp-content/uploads/mistplay-logo-525x112.png"
             alt="Workflow"
           />
         </div>

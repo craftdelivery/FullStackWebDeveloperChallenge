@@ -6,6 +6,7 @@
     "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.4",
     "@reduxjs/toolkit": "^1.6.1",
+    "@tailwindcss/forms": "^0.3.3",
     "axios": "^0.21.1",
     "postcss": "^8.3.6",
     "postcss-cli": "^8.3.1",

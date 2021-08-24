@@ -4,7 +4,7 @@ A react app with a serverless backend to search, remove and update sets of words
 
 ## Strategy
 
-It was clear that using postgres to perform trigram word similarity queries would be the most effective way to solve the problem, as the data needed to be stores somewhere in any case
+It was clear that using postgres to perform trigram word similarity queries would be the most effective way to solve the problem, as the data needed to be stored somewhere in any case
 
 ## Database Seeding
 

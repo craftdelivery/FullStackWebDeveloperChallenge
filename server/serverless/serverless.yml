@@ -4,6 +4,8 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
+  httpApi:
+    cors: true
   lambdaHashingVersion: 20201221
   environment:
       DBURI: ${env:DBURI}

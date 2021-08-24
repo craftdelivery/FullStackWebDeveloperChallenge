@@ -5,7 +5,6 @@ import { clearSearch, setTerm } from './searchSlice'
 import Reslts from './results'
 import styles from '../styles'
 import {
-  TrashIcon,
   XIcon,
 } from '@heroicons/react/solid'
 
@@ -36,17 +35,10 @@ export default function Search() {
   return (
     <div className="bg-white shadow sm:rounded-lg">
       <div className="px-4 py-5 sm:p-6">
-        <h3 className="m-7 text-lg leading-6 font-medium text-gray-900">
+        <h3 className="ml-6 text-lg leading-6 font-medium text-gray-900">
           Search
-          <button
-            className={styles.reset}
-            onClick={clear}
-            disabled={inProgress || !val.length}
-          >
-            <XIcon className="h-6" />
-          </button>
         </h3>
-        <div className="mt-2 max-w-xl text-sm text-gray-500">
+        <div className="ml-6 mt-2 max-w-xl text-sm text-gray-500">
           <p>
             Please enter a single word to search
           </p>
@@ -73,6 +65,13 @@ export default function Search() {
             {
               inProgress ? 'Searching...' : 'Go'
             }
+          </button>
+          <button
+            className={styles.reset}
+            onClick={clear}
+            disabled={inProgress || !val.length}
+          >
+            <XIcon className="h-6" />
           </button>
         </div>
       </div>

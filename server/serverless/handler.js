@@ -109,8 +109,6 @@ module.exports.update = async (event, context) => {
       text: `
         insert into search(word, corpus_id)
              values ($1, ${CORPUS_ID})
-        --on conflict       
-         --do nothing -- we should check for the code in err
           returning *`,
       values: [ word_trimmed ]
     })

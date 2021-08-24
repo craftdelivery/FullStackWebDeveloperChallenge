@@ -14,7 +14,7 @@ see `/server/util` for scripts that clean up the data and populate the db
 
 2) `gen_list.sh` generates a sorted and unique list of words found in the text
 
-3) `populate.js` inserts the words into postges using a single query using unwrap
+3) `populate.js` inserts the words into postges using a single query using unnest
 
 ## Client
 

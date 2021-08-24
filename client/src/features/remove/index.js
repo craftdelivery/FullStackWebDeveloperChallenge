@@ -28,7 +28,6 @@ export default function Remove() {
   const clear = () => {
     setVal('')
     dispatch(setTerm(''))
-    // dispatch(clearSearch())
   }
 
   return (

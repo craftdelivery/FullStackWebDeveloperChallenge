@@ -2,7 +2,7 @@ import axios from 'axios'
 import config from '../../config'
 import { addResult, setProgress, setTerm } from './removeSlice'
 
-export default async function search(dispatch, query) {
+export default async function removeRequest(dispatch, query) {
   dispatch(setProgress(true))
   dispatch(setTerm(query))
   try {
